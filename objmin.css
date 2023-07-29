@@ -1,0 +1,74 @@
+.allobj {
+
+
+
+}
+
+.rowtitle {
+
+    display: block;
+
+    max-width: 1400px;
+
+    border: 2px solid #09e;
+
+    margin: 1px;
+
+}
+
+.rowtitle th {
+
+    height: 30px;
+
+    width: 300px;
+
+    text-align: left;
+
+    font-size: 22px;
+
+}
+
+tr>th:first-child {
+
+    width: 50px;
+
+}
+tr>th:nth-child(3) {
+
+    width: 100px;
+
+}
+#contain {
+
+    display: block;
+
+    border: 2px solid #09e;
+
+    margin: 1px;
+
+    max-width: 1400px;
+
+}
+
+#contain td {
+
+    width: 300px;
+
+    border: 1px solid #ddd;
+
+    height: 200px;
+
+    margin: 2px;
+
+}
+
+tr>td:first-child {
+
+    width: 50px !important;
+
+}
+tr>td:nth-child(2) {
+
+    width: 100px !important;
+
+}
