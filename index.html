@@ -1,24 +1,26 @@
 
-<!Doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name=""content="">
-<title>耗材架管理</title>
+<title>架管理</title>
 <meta name="keywords" content="JavaScript,数据类型">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="./objmin.css">
+<link rel="stylesheet" href="objmin.css">
 
 </head>
 <body>
 
     <header>
-        <h1>耗材数量、有效期管理</h1>
-      </header>
-    <table class="killtool">
-      <tr>
-      </tr>
-    </table>
+        <h1 class="headertitle">数量、有效期管理</h1>
+    </header>
+    <div id="killtool">
+        <div id="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <span id="alertt"></span>
+        </div>
+    </div>
     
     <table class="allobj">
         <thead>
@@ -28,19 +30,23 @@
                 <th>B</th>
                 <th>C</th>
                 <th>D</th>
-                <th>E</th>
             </tr>
         </thead>
 
         <tbody  id="contain"></tbody>
-      
-      <tr class="rowend">
-      </tr>
+        
+        <thead id="tj">
+            <th id="tj0"></th>
+            <th id="tj1"></th>
+            <th id="tj2"></th>
+        </thead>
     </table>
+
+
+
 
 </body>
 
-<script src="./objmain.js">
-</script>
+<script src="objmain.js"></script>
 
 </html>
