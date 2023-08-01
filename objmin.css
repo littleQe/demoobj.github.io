@@ -161,10 +161,11 @@ tr>td:nth-child(2) {
   
 .closebtn {
     margin-left: 15px;
+    margin-top: -50px;
     color: white;
     font-weight: bold;
     float: right;
-    font-size: 22px;
+    font-size: 40px;
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
