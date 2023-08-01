@@ -1,74 +1,175 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 30px;
+}
+body {
+    background: #eee;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    width: 100vw;
+    height: auto;
+
+}
+.headertitle {
+    border: 2px solid #fa6;
+    display: block;
+    width: 1310px;
+    height: 100px;
+    margin: 0;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 30px;
+}
 .allobj {
-
-
-
+    display: block;
+    width: 1310px;
 }
-
+.allobj thead, .allobj tbody {
+    background: #fff;
+    display: block;
+    border: 2px solid #09e;
+    margin: 2px;
+    padding: 5px;
+}
 .rowtitle {
-
     display: block;
-
-    max-width: 1400px;
-
-    border: 2px solid #09e;
-
-    margin: 1px;
-
+    margin: 10px 0;
+    padding: 0;
 }
-
 .rowtitle th {
-
     height: 30px;
-
     width: 300px;
-
     text-align: left;
-
-    font-size: 22px;
-
+    font-size: 16px;
 }
-
-tr>th:first-child {
-
-    width: 50px;
-
+.rowtitle th:first-child {
+    width: 80px;
 }
-tr>th:nth-child(3) {
-
-    width: 100px;
-
-}
-#contain {
-
-    display: block;
-
-    border: 2px solid #09e;
-
-    margin: 1px;
-
-    max-width: 1400px;
-
+.rowtitle th:nth-child(2) {
+    width: 300px;
 }
 
 #contain td {
-
     width: 300px;
-
+    position: relative;
     border: 1px solid #ddd;
-
+    cursor: pointer;
     height: 200px;
-
     margin: 2px;
-
 }
 
+#contain td:hover {
+    background: #ddd;
+
+}
 tr>td:first-child {
-
-    width: 50px !important;
-
+    width: 80px !important;
 }
 tr>td:nth-child(2) {
-
     width: 300px !important;
-
+}
+.tdd li {
+    list-style-type: none;
+    margin-top: 5px;
+    padding: 0;
+    text-indent: 10px;
+}
+.tdd li.diff {
+    width: 100%;
+    margin-top: 20px;
+}
+.tdd div.pic {
+    background: #fff;
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 125px;
+    overflow: hidden;
+    top: 1px;
+    right: 1px;
+}
+.tdd div.pic img {
+    width: 100%;
+    object-fit: contain;
+}
+.diff span {
+    display: block;
+    height: 70px;
+    line-height: 40px;
+    text-indent: 0px;
+}
+.diff span.good {
+    text-indent: 10px;
+    padding: 20px 0;
+    font-size: 20px;
+}
+.kill {
+    background: #d55;
+    color: #eee;
+    padding: 15px 5px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.bad {
+    background: #bb0;
+    color: #eee;
+    padding: 10px;
+    font-size: 20px;
+    font-weight:700;
+}
+.bad b{
+    font-size: 50px;
+    font-weight: 900;
+    margin-top: -5px;
+}
+.good {
+    color: #111;
+    font-size: 16px;
+    font-weight:400;
+}
+#killtool {
+    position: absolute;
+    display: none;
+    width: 100%;
+}
+#alert {
+    position: fixed;
+    z-index: 999;
+    width: 700px;
+    height: 200px;
+    left: 20%;
+    bottom: 50%;
+    padding: 70px 20px;
+    background-color: rgba(244, 65, 52, 0.9);
+    font-size: 60px;
+    color: white;
+    display: none;
+}
+#alertt strong {
+    font-size: 50px;
+}
+#alertt {
+    font-size: 25px;
+}
+  
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.closebtn:hover {
+    color: black;
 }
