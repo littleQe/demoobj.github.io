@@ -83,7 +83,7 @@ document.getElementById("tj2").innerHTML = "临近过期产品：" + bad + " 件
 if (kill >= 1) {
     document.getElementById("killtool").style.display ="block";
     document.getElementById("alert").style.display ="block";
-    document.getElementById("alertt").innerHTML = "<strong>危险！</strong>有 " + kill + " 件产品已过有效期，请立即清理！";
+    document.getElementById("alertt").innerHTML = "<strong>警告！</strong>有 " + kill + " 件产品已过有效期，请立即清理！";
 }
 
 
