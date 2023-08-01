@@ -169,6 +169,7 @@ tr>td:nth-child(2) {
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
+    transition-delay: 10s;
 }
   
 .closebtn:hover {
