@@ -89,7 +89,7 @@ tr>td:nth-child(2) {
     margin-top: 20px;
 }
 .tdd div.pic {
-    background: #fff;
+    background: rgb(255, 255, 255, 0);
     display: block;
     position: absolute;
     width: 100px;
