@@ -7,7 +7,9 @@
     line-height: 30px;
 }
 body {
-    background: #eee;
+    background: transparent url("") no-repeat right bottom;
+    background-size: 300px;
+    z-index: -1;
     display: block;
     justify-content: center;
     align-items: center;
@@ -17,6 +19,7 @@ body {
     height: auto;
 
 }
+
 .headertitle {
     border: 2px solid #fa6;
     display: block;
@@ -113,15 +116,15 @@ tr>td:nth-child(2) {
 .kill {
     background: #d55;
     color: #eee;
-    padding: 15px 2px;
+    padding: 20px 10px;
     font-size: 18px;
     font-weight: 500;
 }
 .bad {
     background: #bb0;
     color: #eee;
-    padding: 10px 2px;
-    font-size: 18px;
+    padding: 10px 5px;
+    font-size: 16px;
     font-weight:700;
 }
 .bad b{
@@ -152,6 +155,16 @@ tr>td:nth-child(2) {
     font-size: 60px;
     color: white;
     display: none;
+    animation: moveToRight 5s ease-in-out;
+    animation-delay: 100ms;
+}
+@keyframes moveToRight {
+    0% {
+        transform: translateX(500px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }
 #alertt strong {
     font-size: 50px;
