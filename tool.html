@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="min.css">
+    <style>
+      header {
+    background-color: #09e;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    width: 80%;
+    max-width: 1190px;
+}
+body {
+    margin: 30px;
+}
+h3 {
+    color: #FFF;
+    padding: 5px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+h4 {
+    color: #f00;
+    padding: 5px;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+b {
+    color: #FFFFFF;
+    background-color: #f00;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+table {
+    max-width: 80%;
+    width: 1200px;
+}
+tr {
+    text-align: left;
+}
+
+tr:hover {
+    background-color: #bff;
+    cursor: pointer;
+}
+td {
+    width: auto;
+    text-align: left;
+    font-size: 20px;
+}
+table, th, td {
+    padding: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+input {
+    padding: 7px;
+    width: 150px;
+}
+input:hover {
+    background: #eee;
+    cursor: pointer;
+}
+input[type="date" i] {
+    padding-inline-start: 1px;
+    cursor: pointer !important;
+    align-items: center;
+    display: inline-flex;
+    overflow: hidden;
+    padding: 0px;
+}
+
+
+.myupt {
+    /* 文字颜色 */
+    color: #0099CC; 
+    /* 清除背景色 */
+    /*background: transparent; */
+    background: #0099ff;
+    border: 2px solid #0099CC;
+    border-radius: 6px; 
+    /* 字母转大写 */
+    border: none;
+    display: block !important;
+    color: white;
+    padding: 6px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 20px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.btn1::before {
+    background-color: #0099ff; 
+    color: black; 
+    border: 2px solid #008CBA;
+}
+/* 悬停样式 */
+.myupt:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+#mintool {
+    height: 80px;
+    text-align: left;
+    font-size: 25px;
+    margin: 5px;
+}
+.rightSideBar {
+    position: fixed;
+    z-index: 9999;
+    padding: 10px;
+    margin: auto;
+    right: 5px;
+    bottom: 90px;
+    max-width: 400px;
+    width: 30%;;
+    height: 70%;
+    background-color: rgba(82, 86, 90, 0.5);
+    border-radius: 18px;
+}
+.footSideBar {
+    position: fixed;
+    z-index: 9999;
+    padding: 10px;
+    margin: auto;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    bottom: 10px;
+    width: 400px;
+    height: 50px;
+    background: rgba(27,35,55,.4);
+    border-radius: 18px;
+}
+.footSideBar .left_warp {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+}
+.footSideBar .bottom_warp {
+    width: auto;
+    position: absolute;
+    align-items: center;
+    color: #222;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: left;
+}
+#hk {
+    color: #b11;
+    font-weight: 500;
+    font-size: 16px;
+    font-style: italic;
+    text-align: right;
+
+}
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <h1>有效期动态管理</h1>
+    </header>
+  
+  <table id="killtool">
+    <tr>
+    </tr>
+  </table>
+  
+  <table id="alltool">
+    <tr>
+      <th>名称</th>
+      <th>编号</th>
+      <th>有效期</th>
+      <th>剩余天数</th>
+      <th>说明</th>
+    </tr>
+    <tr id="end10">
+      <td>钢板尺</td>
+      <td>123000</td>
+      <td><input type="date" value="2023-08-14" id="end1"></td>
+      <td><span id="end11" class="difftime"></span></td>
+      <th></th>
+    </tr>
+    <tr id="end20">
+      <td>卷尺</td>
+      <td>456000</td>
+      <td>
+        <input type="date" value="2023-08-12" id="end2">
+          <p style="font-size: 13px;font-style: italic;">（点击下拉框选择日期）</p>
+          <button onclick="myupt()" class="myupt">更新</button>
+      </td>
+      <td><span id="end22" class="difftime"></span></td>
+      <th></th>
+    </tr>
+    <tr id="end30">
+      <td>秒表</td>
+      <td>789000</td>
+      <td><input type="date" value="2024-08-25" id="end3"></td>
+      <td><span id="end33" class="difftime"></span></td>
+      <th></th>
+    </tr>
+    <tr id="end40">
+      <td>扳手</td>
+      <td>111000</td>
+      <td><input type="date" value="2023-07-20" id="end4"></td>
+      <td><p id="end44" class="difftime"><span></span></p></td>
+      <th></th>
+    </tr>
+    <tr id="end50">
+      <td>扳手（过期）</td>
+      <td>111000</td>
+      <td><input type="date" value="2023-08-20" id="end5"></td>
+      <td><p id="end55" class="difftime"><span></span></p></td>
+      <th></th>
+    </tr>
+    <tr id="end60">
+      <td>
+        <form id="too6">
+          <input type="text" value="输入工具名称">
+        </form>
+      </td>
+      <td>
+        <from id="noo6">
+        <input type="text" value="暂时不可用">
+        </from>
+      </td>
+      <td><input type="date" value="2023-11-27" id="end6">
+        <button onclick="myFunction2()">确定</button>
+      </td>
+      <td><span id="end66" class="difftime"></span></td>
+    </tr>
+    <tr>
+      <td><input type="text" value="研究中"></td>
+      <td><input type="text" value="444000"></td>
+      <td><input type="date" value="2023-07-23" id="end7"></td>
+      <td><span id="end77" class="difftime"></span></td>
+    </tr>
+    <tr>
+      <td><input type="text" value="扳手5"></td>
+      <td><input type="text" value="555000"></td>
+      <td><input type="date" value="2024-07-26" id="end8"></td>
+      <td><span id="end88" class="difftime"></span></td>
+    </tr>
+    <tr id="mintool">
+    </tr>
+  </table>
+  
+  <div class="rightSideBar">
+    <div class="one_warp">
+      <div id="alltt">
+        <h5>信息：</h5>
+        <div>
+          <span>更新日期功能（测试）</span><p>1，选择小于当前日期，提示已过期；</p>
+          <p>2，选择大于当前日期10天内日期，提示即将到期注意送检；</p>
+          <p>3，选择大于当前日期10天后日期，正常显示剩余天数，无提示</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footSideBar">
+    <div class="bottom_warp">请先核对系统时间是否准确：<span id="hk"></span>
+    </div>
+  </div>
+
+
+
+<script>
+
+var nowtime = new Date();
+
+//页脚时间核准
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+  var hk = new Date();
+  var hkM = hk.getMonth() + 1;
+  document.getElementById("hk").innerHTML = 
+  hk.getFullYear() + "-" + hkM + "-" + hk.getDate() + " , " + 
+  hk.toLocaleTimeString();
+}
+
+
+
+//命名赋值
+var end1 = document.getElementById("end1").value;
+var end1 = new Date(end1);
+//document.getElementById("demo1").innerHTML = end1 + " 数据类型为 " + typeof(end1);
+  
+var end2 = document.getElementById("end2").value;
+var end2 = new Date(end2);
+
+var end3 = document.getElementById("end3").value;
+var end3 = new Date(end3);
+
+var end4 = document.getElementById("end4").value;
+var end4 = new Date(end4);
+
+var end5 = document.getElementById("end5").value;
+var end5 = new Date(end5);
+
+
+//遍历表格数据，
+var mytable = document.getElementById("alltool");
+var minrows = document.getElementById("alltool").rows.length;
+document.getElementById("mintool").innerHTML = "工具总数：" + ( minrows - 2 );
+
+//获取2行的列数，列数不变可不要
+var mintd = document.getElementById("alltool").rows[2].cells.length;
+//  document.getElementById("mintool").innerHTML = mintd;
+
+//获取数据，以数组输出
+//  var data = [];
+//  for(var i=1, rows = minrows; i<rows; i++){
+//    data[i] = mytable.rows[i].cells[2].innerHTML;
+//    document.getElementById("mintool").innerHTML = data;
+//  }
+
+
+//11比较时间后保留两位小数,转整数输出，结果不会四舍五入
+  var diffDays = Math.abs(parseInt((end1 - nowtime) /3600000 / 24));
+//11比较时间后保留两位小数输出，转整数输出，结果不会四舍五入
+//  var diffDays = Math.abs(parseInt(((end1 - nowtime) /3600000 / 24) * 100) / 100);
+  if (end1 < nowtime) {
+    document.getElementById("end11").innerHTML = "<h3>注意：此工具已过期：" + diffDays + " 天，" + "请停止使用！</h3>";
+    document.getElementById("end10").style.background = "#f30";
+  } else if (diffDays < 10) {
+    document.getElementById("end11").innerHTML = "<h4>" + diffDays + " 天</h4>请及时送检！";
+    document.getElementById("end10").style.background = "#fc5";
+  } else {
+    document.getElementById("end11").innerHTML = diffDays + " 天 ";
+  }
+
+//22比较时间后完整输出
+var diffDays = Math.abs(Number(((end2 - nowtime) / 3600000 - 8 )/ 24).toFixed(2));
+if (end2 < nowtime) {
+  document.getElementById("end22").innerHTML = "<h3>注意：此工具已过期：" + diffDays + " 天，" + "请停止使用！</h3>";
+  document.getElementById("end20").style.background = "#f30";
+} else if (diffDays < 10) {
+  document.getElementById("end22").innerHTML = "<h4>" + diffDays + " 天</h4>请及时送检！";
+  document.getElementById("end20").style.background = "#fc5";
+} else {
+  document.getElementById("end22").innerHTML = diffDays + " 天 ";
+}
+
+function myupt(){
+  var nowtime = new Date();
+  var end2 = document.getElementById("end2").value;
+var end2 = new Date(end2);
+  var diffDays = Math.abs(Number(((end2 - nowtime) / 3600000 - 8 )/ 24).toFixed(2));
+  document.getElementById("end20").style.background = "#fff";
+if (end2 < nowtime) {
+  document.getElementById("end22").innerHTML = "<h3>注意：此工具已过期：" + diffDays + " 天，" + "请停止使用！</h3>";
+  document.getElementById("end20").style.background = "#f30";
+} else if (diffDays < 10) {
+  document.getElementById("end22").innerHTML = "<h4>" + diffDays + " 天</h4>后到期，请及时送检！";
+  document.getElementById("end20").style.background = "#fc5";
+} else {
+  document.getElementById("end22").innerHTML = diffDays + " 天 ";
+}
+
+}
+
+
+//33比较时间后完整输出时间格式
+var res = Math.abs(Number(end3 - nowtime));
+res = res / 1000 - 28800;
+var y =parseInt(res / 3600 / 24 / 365);
+y = y < 10 ? "0" + y:y;
+var d =parseInt(res / 3600 / 24 % 365);
+d = d < 10 ? "0" + d:d;
+var h = parseInt(res / 3600 % 24);
+h = h < 10 ? "0" + h:h;
+var m = parseInt(res / 60 % 60);
+m = m < 10 ? "0" + m:m;
+var s = parseInt(res % 60);
+s = s < 10 ? "0" + s:s;
+  document.getElementById("end33").innerHTML ="<h4>" + y + " 年 " + d + " 天 " + h + " 时 " + m + " 分 " + s + " 秒 " + "</h4> 后到期，请及时送检！";
+  //document.getElementById("end33").innerHTML ="<h4>" + d + " 天 " + h + " 时 " + m + " 分 " + s + " 秒 " + "</h4> 后到期，请及时送检！";
+  //document.getElementById("end30").style.background = "#fc5";
+
+
+//44工具
+var diffDays = Math.abs(parseInt((end4 - nowtime) /3600000 / 24));
+if (end4 < nowtime) {
+    //window.setTimeout("confirm('请注意：台账中存在过期工具！！！')",3000);
+    document.getElementById("end44").innerHTML = "<h3>注意：此工具已过期：" + diffDays + " 天，" + "请停止使用！</h3>";
+    document.getElementById("end40").style.background = "#f30";
+  } else if (diffDays < 10) {
+    document.getElementById("end44").innerHTML = "<h4>" + diffDays + " 天</h4>请及时送检！";
+    document.getElementById("end40").style.background = "#fc5";
+  } else {
+    document.getElementById("end44").innerHTML = diffDays + " 天 ";
+  }
+
+
+//55工具过期
+var diffDays = Math.abs(parseInt(((end5 - nowtime) / 3600000 - 8 )/ 24).toFixed(2));
+if (end5 < nowtime) {
+  document.getElementById("end55").innerHTML = "<h3>注意：此工具已过期：" + diffDays + " 天，" + "请停止使用！</h3>";
+  document.getElementById("end50").style.background = "#f30";
+} else if (diffDays < 10) {
+  document.getElementById("end55").innerHTML = "<h4>" + diffDays + " 天</h4>请及时送检！";
+  document.getElementById("end50").style.background = "#fc5";
+} else {
+  document.getElementById("end55").innerHTML = diffDays + " 天 ";
+}
+
+//输入提交
+  function myFunction() {
+  var x = document.forms["too6"];
+  var text = "";
+  var i;
+  for (i = 0; i < x.length ;i++) {
+    text += x.elements[i].value;
+  }
+  document.getElementById("tool").innerHTML = text;
+}
+
+</script>
+  
+  
+  
+</body>
+</html>
