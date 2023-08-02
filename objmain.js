@@ -17,13 +17,13 @@ Date.prototype.format=function () {
 
 
 var ob1 =[
-    { name: 'X胶液', code: 'X99', nu: 5, endt: '2023-08-29', pic: './0001.png' },
-    { name: 'Q胶液', code: 'Q90', nu: 6, endt: '2023-08-05', pic: '0009.png' },
-    { name: 'T润滑脂', code: '20T20', nu: 1, endt: '2023-11-20', pic: '0003.jpg' },
+    { name: 'X胶液', code: 'X99', nu: 5, endt: '2023-08-29', pic: './0002.png' },
+    { name: 'Q胶液', code: 'Q90', nu: 6, endt: '2023-08-05', pic: '0008.jpg' },
+    { name: 'T润滑脂', code: '20T20', nu: 1, endt: '2023-11-20', pic: '0004.jpg' },
     { name: '7密封脂', code: '0075', nu: 20, endt: '2023-07-09', pic: '0004.png' },
     { name: '排笔', code: '0074', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
     { name: '玻璃丝', code: 'bb4', nu: 5, endt: '2023-08-29', pic: '0004.png' },
-    { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0002.jpg' },
+    { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-11', pic: '0002.jpg' },
     { name: '基带', nu: 11, endt: '2023-07-20', pic: '0002.jpg' },
     { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
     { name: '油膏', nu: 5, endt: '2023-08-29', pic: '.jpg' },
@@ -70,6 +70,7 @@ function fun(i,j) {
     var nowtime = new Date();
     var endt = new Date(arr[i][j].endt);
     var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
+
     if (endt < nowtime) {
         return "<span class='kill'>产品已过期 " + (diffDays - 2) + " 天，严禁使用！</span>";
     } else if (diffDays < 10) {
@@ -77,6 +78,7 @@ function fun(i,j) {
       } else {
         return "<span class='good'>剩余：" + diffDays + " 天，可放心使用</span>";
       }
+    
 }
 contain.innerHTML = str;
 
