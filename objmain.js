@@ -72,11 +72,11 @@ function fun(i,j) {
     var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
 
     if (endt < nowtime) {
-        return "<span class='kill'>产品已过期 " + (diffDays - 2) + " 天，严禁使用！</span>";
-    } else if (diffDays < 10) {
+        return "<span class='kill'>已过期 " + (diffDays - 2) + " 天，严禁使用！</span>";
+    } else if (diffDays < 15) {
         return "<span class='bad'>有效期仅剩：<b>" + diffDays + "</b>天，请注意！</span>";
       } else {
-        return "<span class='good'>剩余：" + diffDays + " 天，可放心使用</span>";
+        return "<span class='good'>剩余：" + diffDays + " 天，放心使用</span>";
       }
     
 }
@@ -88,14 +88,14 @@ var kill = document.getElementsByClassName("kill").length;
 var bad = document.getElementsByClassName("bad").length;
 var good = document.getElementsByClassName("good").length;
 //console.log(badd);
-document.getElementById("tj0").innerHTML = "货架共有产品：" + all + " 件；";
-document.getElementById("tj1").innerHTML = "已过期产品：" + kill + " 件；";
-document.getElementById("tj2").innerHTML = "临近过期产品：" + bad + " 件";
+document.getElementById("tj0").innerHTML = "货架共有耗材：" + all + " 件；";
+document.getElementById("tj1").innerHTML = "已过期耗材：" + kill + " 件；";
+document.getElementById("tj2").innerHTML = "临近过期耗材：" + bad + " 件";
 
 if (kill >= 1) {
     document.getElementById("killtool").style.display ="block";
     document.getElementById("alert").style.display ="block";
-    document.getElementById("alertt").innerHTML = "<strong>警告！</strong>有 " + kill + " 件产品已过有效期，请立即清理！";
+    document.getElementById("alertt").innerHTML = "<strong>警告！</strong>有 " + kill + " 件耗材已过有效期，请立即清理！";
 }
 
 
