@@ -74,7 +74,7 @@ function fun(i,j) {
     if (endt < nowtime) {
         return "<span class='kill'>已过期 " + (diffDays - 2) + " 天，严禁使用！</span>";
     } else if (diffDays < 15) {
-        return "<span class='bad'>有效期仅剩：<b>" + diffDays + "</b>天，请注意！</span>";
+        return "<span class='bad'>有效期仅剩：<b>" + diffDays + "</b><b>天，请注意！</b></span>";
       } else {
         return "<span class='good'>剩余：" + diffDays + " 天，放心使用</span>";
       }
