@@ -14,11 +14,11 @@ var ob1 =[
     { name: '排笔', code: '0074', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
     { name: '玻璃丝', code: 'bb4', nu: 5, endt: '2023-08-29', pic: '0004.png' },
     { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0002.jpg' },
-    { name: '基带', nu: 11, endt: '2023-07-20' },
-    { name: '橡胶', nu: 20, endt: '2024-03-09' },
-    { name: '油膏', nu: 5, endt: '2023-08-29' },
-    { name: '基带', nu: 1, endt: '2023-08-02' },
-    { name: '绳子', nu: 20, endt: '2023-08-21' },
+    { name: '基带', nu: 11, endt: '2023-07-20', pic: '0002.jpg' },
+    { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
+    { name: '油膏', nu: 5, endt: '2023-08-29', pic: '.jpg' },
+    { name: '基带', nu: 1, endt: '2023-08-02', pic: '.jpg' },
+    { name: '绳子', nu: 20, endt: '2023-08-21', pic: '.jpg' },
     { name: '橡胶', nu: 6, endt: '2023-08-11' },
     { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0009.png' },
     { name: '笔', nu: 9, endt: '2023-08-17' },
@@ -59,7 +59,7 @@ for (var i =0; i <= arr.length - 1; i++) {
 function fun(i,j) {
     var nowtime = new Date();
     var endt = new Date(arr[i][j].endt);
-    var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1));
+    var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
     if (endt < nowtime) {
         return "<span class='kill'>产品已过期 " + diffDays + " 天，严禁使用！</span>";
     } else if (diffDays < 10) {
