@@ -1,5 +1,15 @@
 var nowtime = new Date();
 
+//页脚时间核准
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+  var hk = new Date();
+  var hkM = hk.getMonth() + 1;
+  document.getElementById("hk").innerHTML = 
+  hk.getFullYear() + "-" + hkM + "-" + hk.getDate() + " , " + 
+  hk.toLocaleTimeString();
+}
+
 //格式化时间函数，new Date().format() 使用
 Date.prototype.format=function () {
     return `${this.getFullYear()}年${this.getMonth()+1}月${this.getDate()}日`
