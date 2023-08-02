@@ -145,7 +145,7 @@ tr>td:nth-child(2) {
     width: 700px;
     height: 200px;
     left: 20%;
-    bottom: 50%;
+    bottom: 20%;
     padding: 70px 20px;
     background-color: rgba(244, 65, 52, 0.9);
     font-size: 60px;
@@ -161,7 +161,7 @@ tr>td:nth-child(2) {
   
 .closebtn {
     margin-left: 15px;
-    margin-top: -70px;
+    margin-top: -50px;
     color: white;
     font-weight: bold;
     float: right;
