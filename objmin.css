@@ -121,16 +121,22 @@ tr>td:nth-child(2) {
     font-weight: 500;
 }
 .bad {
+    position: inherit;
     background: #bb0;
     color: #eee;
     padding: 10px 5px;
     font-size: 16px;
     font-weight:700;
 }
-.bad b{
+.bad b {
+    position: absolute;
+    font-family: 黑体;
+    padding: 5px 30px;
+}
+.bad b:first-child {
+    padding: 5px 0;
     font-size: 50px;
     font-weight: 900;
-    margin-top: -5px;
 }
 .good {
     background: #09e;
