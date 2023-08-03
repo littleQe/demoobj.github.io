@@ -75,7 +75,7 @@ tr>td:nth-child(2) {
 }
 .tdd li {
     list-style-type: none;
-    line-height: 26px;
+    line-height: 28px;
     margin-top: 2px;
     text-indent: 5px;
 }
@@ -197,7 +197,8 @@ tr>td:nth-child(2) {
     }
 }
 #alertk strong, #alertb strong {
-    font-size: 50px;
+    font-size:50px;
+    font-weight: 500;
 }
 #alertk, #alertb {
     font-size: 25px;
