@@ -16,11 +16,14 @@
     <header>
         <h1 class="headertitle">耗材数量、有效期管理</h1>
     </header>
-    <div id="killtool">
-        <div id="alert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <span id="alertt"></span>
-        </div>
+
+    <div id="alertkill">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <span id="alertk"></span>
+    </div>
+    <div id="alertbad">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <span id="alertb"></span>
     </div>
     
     <table class="allobj">
@@ -41,10 +44,15 @@
             <th id="tj1"></th>
             <th id="tj2"></th>
             <thead><th>系统时间： </th><th id="hk"></th></thead>
+
+            <th id="green">有效期 d > 30天，显示为绿色；</th>
+            <th id="blue">有效期 30 > d > 10天，显示为蓝色；</th>
+            <th id="yer">有效期 10 > d > 0天，显示为黄色；</th>
+            <th id="red">有效期 d < 0 天，显示为红色。</th>
+
+
         </thead>
     </table>
-
-
 
 
 </body>
