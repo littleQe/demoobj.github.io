@@ -71,7 +71,9 @@ for (var i =0; i <= arr.length - 1; i++) {
 function fun(i,j) {
     var nowtime = new Date();
     var endt = new Date(arr[i][j].endt);
-    var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
+    //var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
+    var diffDays = Number(((endt - nowtime) / 3600000 - 8 )/ 24 + 1).toFixed(1);
+    console.log(diffDays);
 
     var diffTi = Math.abs(Number(endt - nowtime));
     diffTi = diffTi / 1000 + 57600;//毫秒数24-8
@@ -84,15 +86,29 @@ function fun(i,j) {
     var m = parseInt(diffTi / 60 % 60);
     m = m < 10 ? "0" + m:m;
 
-
-    if (endt < nowtime) {
+    /*if (endt < nowtime) {
         return "<span class='kill'>已过期 " + (diffDays - 2).toFixed(1) + " 天，严禁使用！</span>";
     } else if (diffDays < 15) {
         return "<span class='bad'><b>请注意！</b>有效期仅剩：<b>" + d + " 天 </b><b>" + h + "时" + m + "分 " + "</b></span>";
-      } else {
+    } else {
         return "<span class='good'>剩余：" + diffDays + " 天，放心使用</span>";
+    }*/
+
+    switch (true) {
+        case diffDays >= 30:
+          return "<span class='best'>剩余：" + diffDays + " 天，非常好！</span>";
+          break;
+        case diffDays >= 10:
+          return "<span class='good'>剩余：" + diffDays + " 天，放心使用</span>";
+          break;
+        case diffDays >= 0:
+          return "<span class='bad'><b>请注意！</b>有效期仅剩：<b>" + d + " 天 </b><b>" + h + "时" + m + "分 " + "</b></span>";
+          break;
+        default:
+          return "<span class='kill'>已过期 " + Math.abs(diffDays) + " 天，严禁使用！</span>";
+          break;
       }
-    
+
 }
 contain.innerHTML = str;
 
