@@ -65,9 +65,7 @@ var data = data.map(item=> {
         //ppp: new Date(item.endtime) - nowtime ////增加列3-2
     }
     function fun() {
-        if (item.endtime < nowtime) {
-        return Math.abs(Number((new Date(item.endtime) - nowtime)/3600000/24).toFixed(2));
-    }
+        return Number(((new Date(item.endtime) - nowtime)/3600000 + 16)/24).toFixed(2);
     }
 });
 
