@@ -1,24 +1,24 @@
 
-//基础数据st
+//用户数据st
 var ob1 =[
     { name: 'X胶液', code: 'X99123456', nu: 5, endt: '2023-08-29', pic: './0002.png' },
     { name: 'Q胶液', code: 'Q90523641', nu: 6, endt: '2023-08-08', pic: '0008.jpg' },
-    { name: 'T润滑脂', code: '2012774T20', nu: 1, endt: '2023-11-20', pic: '0004.jpg' },
-    { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-09-09', pic: '0004.png' },
+    { name: 'T润滑脂', code: '2012774T20', nu: 1, endt: '2023-08-22', pic: '0004.jpg' },
+    { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-08-15', pic: '0004.png' },
     { name: '排笔', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
     { name: '麻绳', code: 'bb455668520', nu: 5, endt: '2023-08-12', pic: '0006.jpg' },
     { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-21', pic: '0002.jpg' },
     { name: '基带', nu: 11, endt: '2023-08-25', pic: '0002.jpg' },
     { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
     { name: '油膏', nu: 5, endt: '2023-10-29', pic: '.jpg' },
-    { name: '基带', nu: 1, endt: '2023-08-22', pic: '.jpg' },
-    { name: '丝绳', nu: 20, endt: '2023-08-15', pic: '.jpg' },
+    { name: '基带', nu: 1, endt: '2023-11-22', pic: '.jpg' },
+    { name: '丝绳', nu: 20, endt: '2023-09-09', pic: '.jpg' },
     { name: '橡胶', nu: 6, endt: '2023-08-11' },
     { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0009.png' },
     { name: '笔', nu: 9, endt: '2023-08-17' },
     { name: '杯子', nu: 6, endt: '2023-11-19' }//数量：15
 ];
-////基础数据end
+////用户数据end
 
 
 //Time
@@ -111,7 +111,7 @@ function fun(i,j) {
 }
 contain.innerHTML = str;
 
-
+//统计信息
 var all = i * j;
 var kill = document.getElementsByClassName("kill").length;
 var bad = document.getElementsByClassName("bad").length;
@@ -121,11 +121,12 @@ document.getElementById("tj0").innerHTML = " 货架共有耗材：" + all + " �
 document.getElementById("tj1").innerHTML = " 已过期耗材：" + kill + " 件；";
 document.getElementById("tj2").innerHTML = " 临近过期耗材：" + bad + " 件";
 
+
+//模拟弹出提示信息
 if (kill >= 1) {
     document.getElementById("alertkill").style.display ="block";
     document.getElementById("alertk").innerHTML = "<strong>警告！</strong>有 " + kill + " 件耗材已过有效期，请立即清理！";
 }
-
 if (bad >= 1) {
     document.getElementById("alertbad").style.display ="block";
     document.getElementById("alertb").innerHTML = "<strong>注意! </strong>有 " + bad + " 件耗材有效期较短，请及时更新！";
