@@ -8,7 +8,7 @@ var ob1 =[
     { name: '排笔', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
     { name: '麻绳', code: 'bb455668520', nu: 5, endt: '2023-08-12', pic: '0006.jpg' },
     { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-21', pic: '0002.jpg' },
-    { name: '基带', nu: 11, endt: '2023-8-25', pic: '0002.jpg' },
+    { name: '基带', nu: 11, endt: '2023-08-25', pic: '0002.jpg' },
     { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
     { name: '油膏', nu: 5, endt: '2023-10-29', pic: '.jpg' },
     { name: '基带', nu: 1, endt: '2023-08-22', pic: '.jpg' },
