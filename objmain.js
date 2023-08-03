@@ -4,15 +4,15 @@ var ob1 =[
     { name: 'X胶液', code: 'X99123456', nu: 5, endt: '2023-08-29', pic: './0002.png' },
     { name: 'Q胶液', code: 'Q90523641', nu: 6, endt: '2023-08-05', pic: '0008.jpg' },
     { name: 'T润滑脂', code: '2012774T20', nu: 1, endt: '2023-11-20', pic: '0004.jpg' },
-    { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-07-09', pic: '0004.png' },
+    { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-09-09', pic: '0004.png' },
     { name: '排笔', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
-    { name: '麻绳', code: 'bb455668520', nu: 5, endt: '2023-08-29', pic: '0006.jpg' },
-    { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-11', pic: '0002.jpg' },
-    { name: '基带', nu: 11, endt: '2024-07-20', pic: '0002.jpg' },
+    { name: '麻绳', code: 'bb455668520', nu: 5, endt: '2023-08-12', pic: '0006.jpg' },
+    { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-21', pic: '0002.jpg' },
+    { name: '基带', nu: 11, endt: '2023-8-25', pic: '0002.jpg' },
     { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
-    { name: '油膏', nu: 5, endt: '2023-08-29', pic: '.jpg' },
-    { name: '基带', nu: 1, endt: '2023-08-02', pic: '.jpg' },
-    { name: '丝绳', nu: 20, endt: '2023-08-21', pic: '.jpg' },
+    { name: '油膏', nu: 5, endt: '2023-10-29', pic: '.jpg' },
+    { name: '基带', nu: 1, endt: '2023-08-22', pic: '.jpg' },
+    { name: '丝绳', nu: 20, endt: '2023-08-15', pic: '.jpg' },
     { name: '橡胶', nu: 6, endt: '2023-08-11' },
     { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0009.png' },
     { name: '笔', nu: 9, endt: '2023-08-17' },
@@ -21,7 +21,7 @@ var ob1 =[
 ////基础数据end
 
 
-//时间核准
+//Time
 var nowtime = new Date();
 var myVar = setInterval(myTimer, 1000);
 function myTimer() {
@@ -45,7 +45,7 @@ var arr = [
     //[ob1[12],ob1[13],ob1[14],ob1[15],]
 ];
 
-
+//循环输出
 var str='';
 for (var i =0; i <= arr.length - 1; i++) {
     str += '<tr>';
@@ -68,15 +68,16 @@ for (var i =0; i <= arr.length - 1; i++) {
     str += '</td></tr>';
 }
 
+//diff函数
 function fun(i,j) {
     var nowtime = new Date();
     var endt = new Date(arr[i][j].endt);
-    //var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
+    //var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;//负数取正
     var diffDays = Number(((endt - nowtime) / 3600000 - 8 )/ 24 + 1).toFixed(1);
     console.log(diffDays);
 
     var diffTi = Math.abs(Number(endt - nowtime));
-    diffTi = diffTi / 1000 + 57600;//毫秒数24-8
+    diffTi = diffTi / 1000 + 57600;//24-8小时，转毫秒数
     var y =parseInt(diffTi / 3600 / 24 / 365);
     y = y < 10 ? "0" + y:y;
     var d =parseInt(diffTi / 3600 / 24 % 365);
@@ -106,9 +107,7 @@ function fun(i,j) {
           break;
         default:
           return "<span class='kill'>已过期 " + Math.abs(diffDays) + " 天，严禁使用！</span>";
-          break;
       }
-
 }
 contain.innerHTML = str;
 
@@ -118,9 +117,9 @@ var kill = document.getElementsByClassName("kill").length;
 var bad = document.getElementsByClassName("bad").length;
 var good = document.getElementsByClassName("good").length;
 //console.log(badd);
-document.getElementById("tj0").innerHTML = "货架共有耗材：" + all + " 件；";
-document.getElementById("tj1").innerHTML = "已过期耗材：" + kill + " 件；";
-document.getElementById("tj2").innerHTML = "临近过期耗材：" + bad + " 件";
+document.getElementById("tj0").innerHTML = " 货架共有耗材：" + all + " 件；";
+document.getElementById("tj1").innerHTML = " 已过期耗材：" + kill + " 件；";
+document.getElementById("tj2").innerHTML = " 临近过期耗材：" + bad + " 件";
 
 if (kill >= 1) {
     document.getElementById("alertkill").style.display ="block";
