@@ -2,7 +2,7 @@
 //基础数据st
 var ob1 =[
     { name: 'X胶液', code: 'X99123456', nu: 5, endt: '2023-08-29', pic: './0002.png' },
-    { name: 'Q胶液', code: 'Q90523641', nu: 6, endt: '2023-08-05', pic: '0008.jpg' },
+    { name: 'Q胶液', code: 'Q90523641', nu: 6, endt: '2023-08-08', pic: '0008.jpg' },
     { name: 'T润滑脂', code: '2012774T20', nu: 1, endt: '2023-11-20', pic: '0004.jpg' },
     { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-09-09', pic: '0004.png' },
     { name: '排笔', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
