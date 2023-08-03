@@ -72,7 +72,7 @@ function fun(i,j) {
     var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
 
     if (endt < nowtime) {
-        return "<span class='kill'>已过期 " + (diffDays - 2) + " 天，严禁使用！</span>";
+        return "<span class='kill'>已过期 " + (diffDays - 2).toFixed(1) + " 天，严禁使用！</span>";
     } else if (diffDays < 15) {
         return "<span class='bad'>有效期仅剩：<b>" + diffDays + "</b><b>天，请注意！</b></span>";
       } else {
