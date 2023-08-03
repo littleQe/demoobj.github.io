@@ -131,10 +131,11 @@ tr>td:nth-child(2) {
 .bad b {
     position: absolute;
     font-family: 黑体;
-    padding: 5px 30px;
+    padding: 5px 0 0 80px;
 }
 .bad b:first-child {
     padding: 4px 0;
+    width: auto;
     color: #d55;
     font-size: 50px;
     font-weight: 900;
