@@ -17,7 +17,6 @@ body {
     width: 100vw;
     height: auto;
 }
-
 .headertitle {
     border: 2px solid #fff;
     display: block;
@@ -56,7 +55,6 @@ body {
 .rowtitle th:nth-child(2) {
     width: 300px;
 }
-
 #contain td {
     width: 300px;
     position: relative;
@@ -65,10 +63,8 @@ body {
     cursor: pointer;
     height: auto;
 }
-
 #contain td:hover {
     background: #ddd;
-
 }
 tr>td:first-child {
     width: 80px !important;
@@ -108,7 +104,7 @@ tr>td:nth-child(2) {
     line-height: 30px;
     text-indent: 10px;
 }
-.diff span.good {
+.diff span.good,.diff span.best {
     padding: 20px 0;
     font-size: 20px;
 }
@@ -116,12 +112,12 @@ tr>td:nth-child(2) {
     background: #d55;
     color: #eee;
     padding: 20px 10px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
 }
 .bad {
     position: inherit;
-    background: #bb0;
+    background: #cb2;
     color: #eee;
     padding: 5px 2px;
     font-size: 16px;
@@ -139,18 +135,24 @@ tr>td:nth-child(2) {
 .bad b:nth-child(2) {
     position: inherit;
     padding: 10px 0;
-    color: rgb(221, 85, 85);
+    color: #d55;
     font-size: 30px;
     font-weight: 800;
 }
 .bad b:nth-child(3) {
-    color: rgb(221, 85, 85);
+    color: #d55;
     font-size: 18px;
     font-weight: 500;
     font-style: italic;
 }
 .good {
     background: #09e;
+    color: #eee;
+    font-size: 16px;
+    font-weight:400;
+}
+.best {
+    background: #2b5;
     color: #eee;
     font-size: 16px;
     font-weight:400;
@@ -217,7 +219,6 @@ tr>td:nth-child(2) {
     color: black;
 }
 
-
 #blue {
     color: #fff;
     background: #09e;
@@ -230,11 +231,11 @@ tr>td:nth-child(2) {
 }
 #yer {
     color: #fff;
-    background: #bb0;
+    background: #cb2;
     width: 25%;
 }
 #red {
     color: #fff;
-    background: #d55;
+    background: #d66;
     width: 25%;
 }
