@@ -1,202 +1,117 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 16px;
-    line-height: 30px;
-}
-body {
-    background: transparent url("") no-repeat right bottom;
-    background-size: 300px;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 20px;
-    width: 100vw;
-    height: auto;
+//基础数据st
+var ob1 =[
+    { name: 'X胶液', code: 'X99123456', nu: 5, endt: '2023-08-29', pic: './0002.png' },
+    { name: 'Q胶液', code: 'Q90523641', nu: 6, endt: '2023-08-05', pic: '0008.jpg' },
+    { name: 'T润滑脂', code: '2012774T20', nu: 1, endt: '2023-11-20', pic: '0004.jpg' },
+    { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-07-09', pic: '0004.png' },
+    { name: '排笔', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
+    { name: '麻绳', code: 'bb455668520', nu: 5, endt: '2023-08-29', pic: '0006.jpg' },
+    { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-11', pic: '0002.jpg' },
+    { name: '基带', nu: 11, endt: '2024-07-20', pic: '0002.jpg' },
+    { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
+    { name: '油膏', nu: 5, endt: '2023-08-29', pic: '.jpg' },
+    { name: '基带', nu: 1, endt: '2023-08-02', pic: '.jpg' },
+    { name: '丝绳', nu: 20, endt: '2023-08-21', pic: '.jpg' },
+    { name: '橡胶', nu: 6, endt: '2023-08-11' },
+    { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0009.png' },
+    { name: '笔', nu: 9, endt: '2023-08-17' },
+    { name: '杯子', nu: 6, endt: '2023-11-19' }//数量：15
+];
+////基础数据end
 
-}
 
-.headertitle {
-    border: 2px solid #fff;
-    display: block;
-    width: 1310px;
-    margin: 0;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 40px;
-}
-.allobj {
-    display: block;
-    width: 1310px;
-}
-.allobj thead, .allobj tbody {
-    background: #fff;
-    display: block;
-    border: 2px solid #09e;
-    margin: 2px;
-    padding: 5px;
-}
-.rowtitle {
-    display: block;
-    margin: 10px 0;
-    padding: 0;
-}
-.rowtitle th {
-    height: 30px;
-    width: 300px;
-    text-align: left;
-    font-size: 16px;
-}
-.rowtitle th:first-child {
-    width: 80px;
-    text-align: center;
-}
-.rowtitle th:nth-child(2) {
-    width: 300px;
+//时间核准
+var nowtime = new Date();
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+  var hk = new Date();
+  var hkM = hk.getMonth() + 1;
+  document.getElementById("hk").innerHTML = 
+  hk.getFullYear() + "-" + hkM + "-" + hk.getDate() + " , " + 
+  hk.toLocaleTimeString();
 }
 
-#contain td {
-    width: 300px;
-    position: relative;
-    border: 1px solid #ddd;
-    border-radius: 0;
-    cursor: pointer;
-    height: 200px;
-    margin: 2px;
+//格式化时间函数，new Date().format() 使用
+Date.prototype.format=function () {
+    return `${this.getFullYear()}年${this.getMonth()+1}月${this.getDate()}日`
 }
 
-#contain td:hover {
-    background: #ddd;
+//新建数组
+var arr = [
+    [ob1[0],ob1[1],ob1[2],ob1[3],],//ob1[4],],
+    [ob1[4],ob1[5],ob1[6],ob1[7],],//ob1[9],],
+    [ob1[8],ob1[9],ob1[10],ob1[11],]//ob1[14],],
+    //[ob1[12],ob1[13],ob1[14],ob1[15],]
+];
 
-}
-tr>td:first-child {
-    width: 80px !important;
-    text-align: center;
-}
-tr>td:nth-child(2) {
-    width: 300px !important;
-}
-.tdd li {
-    list-style-type: none;
-    margin-top: 5px;
-    padding: 0;
-    text-indent: 10px;
-}
-.tdd li.diff {
-    width: 100%;
-    margin-top: 20px;
-}
-.tdd div.pic {
-    background: rgb(255, 255, 255, 0);
-    display: block;
-    position: absolute;
-    width: 100px;
-    height: 120px;
-    overflow: hidden;
-    top: 1px;
-    right: 1px;
-}
-.tdd div.pic img {
-    width: 100%;
-    object-fit: contain;
-}
-.diff span {
-    border-radius: 0;
-    display: block;
-    height: 70px;
-    line-height: 40px;
-    text-indent: 0px;
-}
-.diff span.good {
-    text-indent: 10px;
-    padding: 20px 0;
-    font-size: 20px;
-}
-.kill {
-    background: #d55;
-    color: #eee;
-    padding: 20px 10px;
-    font-size: 18px;
-    font-weight: 500;
-}
-.bad {
-    position: inherit;
-    background: #bb0;
-    color: #eee;
-    padding: 10px 5px;
-    font-size: 16px;
-    font-weight:700;
-}
-.bad b {
-    position: absolute;
-    font-family: 黑体;
-    padding: 5px 0 0 80px;
-}
-.bad b:first-child {
-    padding: 4px 0;
-    width: auto;
-    color: #d55;
-    font-size: 50px;
-    font-weight: 900;
-}
-.good {
-    background: #09e;
-    color: #eee;
-    font-size: 16px;
-    font-weight:400;
-}
-#killtool {
-    position: absolute;
-    display: none;
-    width: 100%;
-}
-#alert {
-    position: fixed;
-    z-index: 999;
-    width: 700px;
-    height: 200px;
-    left: 2%;
-    bottom: 20%;
-    border-radius: 20px;
-    padding: 70px 20px;
-    background-color: rgba(244, 65, 52, 0.9);
-    font-size: 60px;
-    color: white;
-    display: none;
-    animation: moveToRight 5s ease-in-out;
-    animation-delay: 100ms;
-}
-@keyframes moveToRight {
-    0% {
-        transform: translateX(500px);
+
+var str='';
+for (var i =0; i <= arr.length - 1; i++) {
+    str += '<tr>';
+    str += `<td>第 ${i +1} 层</td>`;
+
+    for (var j = 0; j <= arr[i].length - 1; j++) {
+
+        str += `<td class="tdd" id="td-${i+1}${j+1}">`;
+        //str += `<li>${i +1,j + 1}</li>`;//列号
+
+        //输出li
+        str += `<li class="name">名称：${arr[i][j].name}</li>`;
+        str += `<li class="name">批次：${arr[i][j].code}</li>`;
+        str += `<li class="nu">数量：${arr[i][j].nu}</li>`;
+        str += `<li class="endt">有效期：${new Date(arr[i][j].endt).format()}</li>`;
+        str += `<li class="diff">${fun(i,j)}</li>`;
+        str += `<div class="pic"><img src="${arr[i][j].pic}" alt="${arr[i][j].name}图片"></div>`;
+        
     }
-    100% {
-        transform: translateX(0px);
-    }
+    str += '</td></tr>';
 }
-#alertt strong {
-    font-size: 50px;
+
+function fun(i,j) {
+    var nowtime = new Date();
+    var endt = new Date(arr[i][j].endt);
+    var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;
+
+    var diffTi = Math.abs(Number(endt - nowtime));
+    diffTi = diffTi / 1000 + 57600;//毫秒数24-8
+    var y =parseInt(diffTi / 3600 / 24 / 365);
+    y = y < 10 ? "0" + y:y;
+    var d =parseInt(diffTi / 3600 / 24 % 365);
+    d = d < 10 ? " " + d:d;
+    var h = parseInt(diffTi / 3600 % 24);
+    h = h < 10 ? "0" + h:h;
+    var m = parseInt(diffTi / 60 % 60);
+    m = m < 10 ? "0" + m:m;
+
+
+    if (endt < nowtime) {
+        return "<span class='kill'>已过期 " + (diffDays - 2).toFixed(1) + " 天，严禁使用！</span>";
+    } else if (diffDays < 15) {
+        return "<span class='bad'><b>请注意！</b>有效期仅剩：<b>" + d + " 天 </b><b>" + h + "时" + m + "分 " + "</b></span>";
+      } else {
+        return "<span class='good'>剩余：" + diffDays + " 天，放心使用</span>";
+      }
+    
 }
-#alertt {
-    font-size: 25px;
+contain.innerHTML = str;
+
+
+var all = i * j;
+var kill = document.getElementsByClassName("kill").length;
+var bad = document.getElementsByClassName("bad").length;
+var good = document.getElementsByClassName("good").length;
+//console.log(badd);
+document.getElementById("tj0").innerHTML = "货架共有耗材：" + all + " 件；";
+document.getElementById("tj1").innerHTML = "已过期耗材：" + kill + " 件；";
+document.getElementById("tj2").innerHTML = "临近过期耗材：" + bad + " 件";
+
+if (kill >= 1) {
+    document.getElementById("alertkill").style.display ="block";
+    document.getElementById("alertk").innerHTML = "<strong>警告！</strong>有 " + kill + " 件耗材已过有效期，请立即清理！";
 }
-  
-.closebtn {
-    margin-left: 15px;
-    margin-top: -50px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 40px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-    transition-delay: 10s;
-}
-  
-.closebtn:hover {
-    color: black;
+
+if (bad >= 1) {
+    document.getElementById("alertbad").style.display ="block";
+    document.getElementById("alertb").innerHTML = "<strong>注意! </strong>有 " + bad + " 件耗材有效期较短，请及时更新！";
 }
