@@ -7,9 +7,300 @@
 <!--<meta http-equiv="refresh" content="200; url='./wel.html'">-->
 <title>耗材架管理</title>
 <meta name="keywords" content="JavaScript,数据类型">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="objmin.css">
+<link rel="icon" href="./0009.png" type="image/x-icon">
+<link rel="stylesheet" href="./objmin.css">
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 30px;
+}
+body {
+    background: transparent url("") no-repeat right bottom;
+    background-size: 300px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 30px 20px;
+    width: 100vw;
+    height: auto;
+}
+.headertitle {
+    border: 2px solid #fff;
+    display: block;
+    width: 98%;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 40px;
+}
+.allobj {
+    display: block;
+    width: 98%;
+}
+.allobj thead, .allobj tbody {
+    background: #fff;
+    display: block;
+    border: 2px solid #09e;
+    margin: 2px;
+    padding: 5px;
+}
+.rowtitle {
+    display: block;
+    margin: 10px 0;
+    padding: 0;
+}
+.rowtitle th {
+    height: 30px;
+    width: 500px;
+    text-align: left;
+    font-size: 16px;
+}
+.rowtitle th:first-child {
+    width: 80px;
+    text-align: center;
+}
+#contain td {
+    width: 380px;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    cursor: pointer;
+    height: auto;
+}
+#contain td:hover {
+    background: #ddd;
+}
+tr>td:first-child {
+    width: 80px !important;
+    text-align: center;
+}
+tr>td:nth-child(2) {
+}
+.tdd li {
+    list-style-type: none;
+    line-height: 30px;
+    margin-top: 2px;
+    text-indent: 5px;
+}
+.tdd li.diff {
+    width: 100%;
+    margin-top: 5px;
+}
+.tdd div.pic {
+    background: rgb(255, 255, 255, 0);
+    display: block;
+    position: absolute;
+    width: 110px;
+    height: 120px;
+    overflow: hidden;
+    top: 3px;
+    right: 3px;
+}
+.tdd div.pic img {
+    width: 100%;
+    object-fit: contain;
+}
+.diff span {
+    border-radius: 0;
+    display: block;
+    height: 70px;
+    line-height: 30px;
+    text-indent: 10px;
+}
+.diff span.good,.diff span.best {
+    padding: 20px 0;
+    font-size: 20px;
+}
 
+#columns {
+    columns: 2;
+    column-gap: 0;
+}
+#columns:hover {
+    background: #fff;
+}
+#columns div {
+    width: 100%;
+    float: left;
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+#columns div:hover {
+    background: #ddd;
+}
+.kill {
+    background: #d55;
+    color: #eee;
+    padding: 20px 10px;
+    font-size: 22px;
+    font-weight: 500;
+}
+.bad {
+    position: inherit;
+    background: #cb2;
+    color: #eee;
+    padding: 5px 2px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.bad b:first-child {
+    font-family: 黑体;
+    font-weight: 500;
+    display: block;
+    height: 20px;
+    text-indent: 0;
+    font-size: 20px;
+    font-style: italic;
+}
+.bad b:nth-child(2) {
+    position: inherit;
+    padding: 10px 0;
+    color: #d55;
+    font-size: 30px;
+    font-weight: 800;
+}
+.bad b:nth-child(3) {
+    color: #d55;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: italic;
+}
+.good {
+    background: #09e;
+    color: #eee;
+    font-size: 16px;
+    font-weight:400;
+}
+.best {
+    background: #2b5;
+    color: #eee;
+    font-size: 16px;
+    font-weight:400;
+}
+.minbox {
+    color: #eee;
+    position: relative;
+    width: 200px;
+    font-size: 14px;
+}
+.minbox li {
+    line-height: 26px;
+    margin: 0;
+}
+.mbest,.mgood,.mbad,.mkill {
+    display: block;
+    margin-top: -54px;
+}
+.mbest:hover {
+    color: #333;
+}
+.mbest {
+    background: #2b5;
+    border-top: 70px solid #2b5;
+}
+.mgood {
+    background: #09e;
+    border-top: 70px solid #09e;
+}
+.mbad {
+    background: #cb2;
+    border-top: 70px solid #cb2;
+}
+.mkill {
+    background: #d55;
+    border-top: 70px solid #d55;
+}
+#pop {
+    position: absolute;
+    display: none;
+    width: 100%;
+}
+#alertkill, #alertbad {
+    position: fixed;
+    z-index: 999;
+    width: 800px;
+    height: 120px;
+    border-radius: 20px;
+    padding: 30px 20px;
+    font-size: 60px;
+    color: white;
+    display: none;
+}
+#alertkill {
+    background-color: #f44134e6;
+    left: 2%;
+    bottom: 15%;
+    animation: moveToRight 3s ease-in-out;
+    animation-delay: 100ms;
+    animation-iteration-count: 3;
+}
+#alertbad {
+    background-color: #d8db2efa;
+    z-index: 990;
+    left: 2%;
+    bottom: 3%;
+    animation: moveToRight 5s ease-in-out;
+    animation-delay: 500ms;
+    animation-iteration-count: 3;
+}
+@keyframes moveToRight {
+    0% {
+        transform: translateX(500px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+#alertk strong, #alertb strong {
+    font-size:50px;
+    font-weight: 500;
+}
+#alertk, #alertb {
+    font-size: 25px;
+}
+  
+.closebtn {
+    margin-top: -20px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 40px;
+    line-height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+}
+  
+.closebtn:hover {
+    color: black;
+}
+
+#blue {
+    color: #fff;
+    background: #09e;
+    width: 25%;
+}
+#green {
+    color: #fff;
+    background: #2b5;
+    width: 25%;
+}
+#yer {
+    color: #fff;
+    background: #cb2;
+    width: 25%;
+}
+#red {
+    color: #fff;
+    background: #d66;
+    width: 25%;
+}
+    </style>
 </head>
 <body>
 
@@ -43,20 +334,197 @@
             <th id="tj0"></th>
             <th id="tj1"></th>
             <th id="tj2"></th>
-            <thead><th>系统时间： </th><th id="hk"></th></thead>
+        </thead>
+        
+        <thead>
+            <th>系统时间： </th>
+            <th id="hk"></th>
+            <th>---------------------------工具类台账有效期：<a href="./tool.html">测试版本01</a>-------<a href="./agdemo.html">测试版本02</a></th>
+        </thead>
 
-            <th id="blue">有效期 d > 30天，显示为白色；</th>
-            <th id="green">有效期 30 > d > 10天，显示为绿色；</th>
+        <thead>
+            <th id="green">有效期 d > 30天，显示为绿色；</th>
+            <th id="blue">有效期 30 > d > 10天，显示为蓝色；</th>
             <th id="yer">有效期 10 > d > 0天，显示为黄色；</th>
             <th id="red">有效期 d < 0 天，显示为红色。</th>
-
-
         </thead>
     </table>
 
 
 </body>
+<script>
+    
+//基础数据st
+var cons =[
+    { name: 'X胶液', code: 'X99123456', nu: 5, endt: '2023-08-29', pic: './0002.png' },
+    { name: 'Q胶液', code: 'Q90523641', nu: 6, endt: '2023-08-09', pic: '0008.jpg' },
+    { name: 'T润滑脂', code: '2012774T20', nu: 1, endt: '2023-11-20', pic: '0004.jpg' },
+    { name: '7密封脂', code: 'abcde0075', nu: 20, endt: '2023-09-09', pic: '0004.png' },
+    { name: '排笔', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
+    { name: '麻绳', code: 'bb455668520', nu: 5, endt: '2023-08-12', pic: '0006.jpg' },
+    { name: '高温带', code: 'gg5', nu: 18, endt: '2023-08-21', pic: '0002.jpg' },
+    { name: '基带', nu: 11, endt: '2023-08-25', pic: '0002.jpg' },
+    { name: '橡胶', nu: 20, endt: '2024-03-09', pic: 'logo.jpg' },
+    { name: '油膏', nu: 5, endt: '2023-10-29', pic: '.jpg' },
+    { name: '基带', nu: 1, endt: '2023-08-22', pic: '.jpg' },
+    { name: '丝绳', nu: 20, endt: '2023-08-15', pic: '.jpg' },
+    { name: '橡胶', nu: 6, endt: '2023-08-11' },
+    { name: '高温带', code: 'gg5', nu: 6, endt: '2023-11-19', pic: '0009.png' },
+    { name: '笔', nu: 9, endt: '2023-08-17' },
+    { name: '杯子', nu: 6, endt: '2023-11-19' }//数量：15
+];
+////基础数据end
 
-<script src="objmain.js"></script>
+var min =[
+    { name: 'A密封脂', code: 'abcde0075', nu: 20, endt: '2023-09-09', pic: '0004.png' },
+    { name: 'T润滑脂', code: '0011223374', nu: 20, endt: '2023-08-01', pic: '0005.jpg' },
+    { name: '70油膏', code: 'bb455668520', nu: 5, endt: '2023-08-12', pic: '0006.jpg' },
+    { name: '45油膏', code: 'gg5', nu: 18, endt: '2023-08-21', pic: '0002.jpg' }
+];
 
+//Time
+var nowtime = new Date();
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+  var hk = new Date();
+  var hkM = hk.getMonth() + 1;
+  document.getElementById("hk").innerHTML = 
+  hk.getFullYear() + "-" + hkM + "-" + hk.getDate() + " , " + 
+  hk.toLocaleTimeString();
+}
+
+//格式化时间函数，new Date().format() 使用
+Date.prototype.format=function () {
+    return `${this.getFullYear()}年${this.getMonth()+1}月${this.getDate()}日`
+}
+
+var empty =[];
+//新建数组
+var arr = [
+    [cons[0],cons[1],cons[2],cons[3],],//cons[4],],
+    [empty,cons[5],cons[6],cons[7],],//cons[9],],
+    [cons[8],cons[9],cons[10],cons[11],],//cons[14],],
+    [cons[8],],
+];
+
+//循环输出
+var str='';
+for (var i =0; i <= arr.length - 1; i++) {
+    str += '<tr>';
+    str += `<td>第 ${i +1} 层</td>`;
+
+    for (var j = 0; j <= arr[i].length - 1; j++) {
+
+        str += `<td class="tdd" id="td-${i+1}${j}">`;
+        //str += `<li>${i +1,j + 1}</li>`;//列号
+
+
+
+        //输出li
+        str += `<li class="name">名称：${arr[i][j].name}</li>`;
+        str += `<li class="name">批次：${arr[i][j].code}</li>`;
+        str += `<li class="nu">数量：${arr[i][j].nu}</li>`;
+        str += `<li class="endt">有效期：${new Date(arr[i][j].endt).format()}</li>`;
+        str += `<li class="diff">${fun(i,j)}</li>`;
+        str += `<div class="pic"><img src="${arr[i][j].pic}" alt="${arr[i][j].name}图片"></div></td>`;
+    }
+    str += '</tr>';
+}
+
+//diff函数
+function fun(i,j) {
+    var nowtime = new Date();
+    var endt = new Date(arr[i][j].endt);
+    //var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;//负数取正
+    var diffDays = Number(((endt - nowtime) / 3600000 - 8 )/ 24 + 1).toFixed(1);
+    console.log(diffDays);
+
+    var diffTi = Math.abs(Number(endt - nowtime));
+    diffTi = diffTi / 1000 + 57600;//24-8小时，转毫秒数
+    var y =parseInt(diffTi / 3600 / 24 / 365);
+    y = y < 10 ? "0" + y:y;
+    var d =parseInt(diffTi / 3600 / 24 % 365);
+    d = d < 10 ? " " + d:d;
+    var h = parseInt(diffTi / 3600 % 24);
+    h = h < 10 ? "0" + h:h;
+    var m = parseInt(diffTi / 60 % 60);
+    m = m < 10 ? "0" + m:m;
+
+    switch (true) {
+        case diffDays >= 30:
+          return "<span class='best'>剩余：" + diffDays + " 天，非常好！</span>";
+          break;
+        case diffDays >= 10:
+          return "<span class='good'>剩余：" + diffDays + " 天，放心使用</span>";
+          break;
+        case diffDays >= 0:
+          return "<span class='bad'><b>请注意！</b>有效期仅剩：<b>" 
+          + d + " 天 </b><b>" + h + "时" + m + "分 " + "</b></span>";
+          break;
+        default:
+          return "<span class='kill'>已过期 " + Math.abs(diffDays) + " 天，严禁使用！</span>";
+      }
+}
+
+contain.innerHTML = str;
+
+var all = i * j;
+var kill = document.getElementsByClassName("kill").length;
+var bad = document.getElementsByClassName("bad").length;
+var good = document.getElementsByClassName("good").length;
+//console.log(badd);
+document.getElementById("tj0").innerHTML = " 货架共有耗材：" + all + " 件；";
+document.getElementById("tj1").innerHTML = " 已过期耗材：" + kill + " 件；";
+document.getElementById("tj2").innerHTML = " 临近过期耗材：" + bad + " 件";
+
+if (kill >= 1) {
+    document.getElementById("alertkill").style.display ="block";
+    document.getElementById("alertk").innerHTML = "<strong>警告！</strong>有 " 
+    + kill + " 件耗材已过有效期，请立即清理！";
+}
+
+if (bad >= 1) {
+    document.getElementById("alertbad").style.display ="block";
+    document.getElementById("alertb").innerHTML = "<strong>注意! </strong>有 " + bad + " 件耗材有效期较短，请及时更新！";
+}
+
+
+//合并单元格
+document.getElementById("td-40").colSpan = "4";//合并行
+//document.getElementById("td-11").rowSpan = "2";//合并列
+
+//数组替换,minbox
+document .getElementById("td-20").innerHTML = "<div id='columns'></div>";
+
+var minarr='';
+for (var m = 0; m <= 3; m++) {
+    minarr += `<div class="minbox">`;
+    minarr += `<li class="minn">名称：${min[m].name}</li>`;
+    minarr += `<li class="minu">数量：${min[m].nu}</li>`;
+    minarr += `<li class="mind">${fmin(m)}</li></div>`;
+}
+
+function fmin(m) {
+    var nowtime = new Date();
+    var endt = new Date(min[m].endt);
+    //var diffDays = Math.abs(Number(((endt - nowtime) / 3600000 - 8 )/ 24).toFixed(1)) + 1;//负数取正
+    var diffDays = Number(((endt - nowtime) / 3600000 - 8 )/ 24 + 1).toFixed(1);
+
+    switch (true) {
+        case diffDays >= 30:
+          return "<span class='mbest'>剩余：" + diffDays + " 天</span>";
+          break;
+        case diffDays >= 10:
+          return "<span class='mgood'>剩余：" + diffDays + " 天</span>";
+          break;
+        case diffDays >= 0:
+          return "<span class='mbad'>仅剩：<b>" + diffDays + " 天 </b></span>";
+          break;
+        default:
+          return "<span class='mkill'>已过期 " + Math.abs(diffDays) + " 天！</span>";
+      }
+}
+
+columns.innerHTML = minarr;
+</script>
 </html>
